@@ -4,6 +4,9 @@ class Tetris:
         self.COLS = 10
         self.board = [[0 for x in range(self.COLS)] for y in range(self.ROWS)]
 
+    def input(self, key):
+        ...
+
     def move(self, direction):
         ...
 
