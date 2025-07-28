@@ -11,6 +11,9 @@ class SizeError(Exception):
 def main(stdscr):
     if curses.LINES < 25 or curses.COLS < 25:
         raise SizeError()
+    curses.cbreak()
+    curses.noecho()
+    stdscr.keypad(True)
     stdscr.nodelay(True)
     curses.init_pair(1, curses.COLOR_BLACK, curses.COLOR_BLUE)
     curses.init_pair(2, curses.COLOR_BLACK, curses.COLOR_YELLOW)
@@ -22,12 +25,31 @@ def main(stdscr):
     width = (width // 2) - 10
 
     frame = 0
+    flag = False
     while True:
-        key = stdscr.getkey()
+        try:
+            key = stdscr.getkey()
+            flag = True
+        except curses.error:
+            pass
         now = time.time()
         if now - last > 0.5:
-            frame += 1
             last = now
+            frame += 1
+            if flag:
+                flag = False
+                if key == "q" or key == "Q":
+                    break
+                if key == "p" or key == "P":
+                    stdscr.clear()
+                    stdscr.refresh()
+                    while True:
+                        try:
+                            if stdscr.getkey() in ["p", "P"]:
+                                break
+                        except curses.error:
+                            pass
+
             # Print Horizontal Border
             for i in range(tetris.ROWS + 1):
                 stdscr.addstr(i + height, width - 2, "  ", curses.color_pair(3))
@@ -43,7 +65,8 @@ def main(stdscr):
                     else:
                         stdscr.addstr(i + height, (j * 2) + width, "  ", curses.color_pair(2))
             stdscr.refresh()
-
+    stdscr.nodelay(False)
+    stdscr.refresh()
 
 if __name__ == '__main__':
     wrapper(main)
