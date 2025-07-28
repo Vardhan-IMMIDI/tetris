@@ -1,8 +1,8 @@
 class Tetris:
-    def __init__(self, ROWS=20, COLS=10):
-        self.ROWS = ROWS
-        self.COLS = COLS
-        self.board = [[0 for x in range(COLS)] for y in range(ROWS)]
+    def __init__(self):
+        self.ROWS = 20
+        self.COLS = 10
+        self.board = [[0 for x in range(self.COLS)] for y in range(self.ROWS)]
 
     def move(self, direction):
         ...
