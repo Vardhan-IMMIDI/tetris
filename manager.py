@@ -49,6 +49,8 @@ def main(stdscr):
                                 break
                         except curses.error:
                             pass
+                if key in [" ", "KEY_UP", "KEY_DOWN", "KEY_LEFT", "KEY_RIGHT"]:
+                    tetris.input(key)
 
             # Print Horizontal Border
             for i in range(tetris.ROWS + 1):
