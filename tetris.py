@@ -4,7 +4,6 @@ class Tetris:
     def __init__(self):
         self.ROWS = 20
         self.COLS = 10
-        self. queue = []
         self.game_end = False
         self.current_block = []
         self.current_block_num = 0
@@ -39,6 +38,7 @@ class Tetris:
                 break
         else:
             self.current_block_num += 1
+            self.current_block = []
             for i in range(len(block)):
                 self.board[block[i][0]][block[i][1] + random_pos][0] = self.current_block_num
                 self.board[block[i][0]][block[i][1] + random_pos][1] = 1
@@ -50,8 +50,28 @@ class Tetris:
         ...
 
     def gravity(self):
-        for i in range(len(self.queue)):
-            ...
+        for i in range(len(self.current_block)):
+            try:
+                if self.board[self.current_block[i][0] + 1][self.current_block[i][1]][0] not in [0, self.current_block_num]:
+                    self.delete_rows()
+                    self.add_block()
+                    break
+            except IndexError:
+                self.delete_rows()
+                self.add_block()
+                break
+        else:
+            for i  in range(len(self.current_block)):
+                self.board[self.current_block[i][0]][self.current_block[i][1]][0] = 0
+                self.board[self.current_block[i][0]][self.current_block[i][1]][1] = 0
+            for i in range(len(self.current_block)):
+                self.current_block[i][0] += 1
+            for i in range(len(self.current_block)):
+                self.board[self.current_block[i][0]][self.current_block[i][1]][0] = self.current_block_num
+                self.board[self.current_block[i][0]][self.current_block[i][1]][1] = 1
+
+    def delete_rows(self):
+        ...
 
     def rotate(self):
         ...
