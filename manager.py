@@ -34,7 +34,11 @@ def main(stdscr):
             pass
         now = time.time()
         if now - last > 0.5:
+            if tetris.game_end:
+                break
             last = now
+            if frame == 0:                  # Temporary add block call!!
+                tetris.add_block()          # Remove In Final Code
             frame += 1
             if flag:
                 flag = False
@@ -62,7 +66,7 @@ def main(stdscr):
             # Print Play Zone
             for i in range(tetris.ROWS):
                 for j in range(tetris.COLS):
-                    if tetris.board[i][j] > 0:
+                    if tetris.board[i][j][1] > 0:
                         stdscr.addstr(i + height, (j * 2) + width, "  ", curses.color_pair(1))
                     else:
                         stdscr.addstr(i + height, (j * 2) + width, "  ", curses.color_pair(2))
