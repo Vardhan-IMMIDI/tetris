@@ -33,7 +33,7 @@ def main(stdscr):
         except curses.error:
             pass
         now = time.time()
-        if now - last > 0.5:
+        if now - last > 0.2:
             if tetris.game_end:
                 break
             last = now
