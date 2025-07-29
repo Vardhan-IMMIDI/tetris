@@ -39,7 +39,7 @@ def main(stdscr):
             last = now
             if frame == 0:                  # Temporary add block call!!
                 tetris.add_block()          # Remove In Final Code
-            tetris.gravity()
+            tetris.current_block_gravity()
             frame += 1
             if flag:
                 flag = False

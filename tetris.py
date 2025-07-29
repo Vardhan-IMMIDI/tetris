@@ -47,9 +47,35 @@ class Tetris:
 
 
     def move(self, direction):
-        ...
+        if direction == "LEFT":
+            move = -1
+        elif direction == "RIGHT":
+            move = 1
+        else:
+            print("Program Working Incorrectly")
+            return
+        for i in range(len(self.current_block)):
+            try:
+                if self.current_block[i][1] + move < 0:
+                    break
+                if self.board[self.current_block[i][0]][self.current_block[i][1] + move][0] not in [0, self.current_block_num]:
+                    break
+            except IndexError:
+                break
+        else:
+            for i in range(len(self.current_block)):
+                self.board[self.current_block[i][0]][self.current_block[i][1]][0] = 0
+                self.board[self.current_block[i][0]][self.current_block[i][1]][1] = 0
+            for i in range(len(self.current_block)):
+                self.current_block[i][1] += move
+            for i in range(len(self.current_block)):
+                self.board[self.current_block[i][0]][self.current_block[i][1]][0] = self.current_block_num
+                self.board[self.current_block[i][0]][self.current_block[i][1]][1] = 1
 
-    def gravity(self):
+
+
+
+    def current_block_gravity(self):
         for i in range(len(self.current_block)):
             try:
                 if self.board[self.current_block[i][0] + 1][self.current_block[i][1]][0] not in [0, self.current_block_num]:
@@ -71,7 +97,19 @@ class Tetris:
                 self.board[self.current_block[i][0]][self.current_block[i][1]][1] = 1
 
     def delete_rows(self):
-        ...
+        rows_deleted = 0
+        for i in range(self.ROWS):
+            for j in range(self.COLS):
+                if self.board[i][j][0] == 0:
+                    break
+            else:
+                rows_deleted += 1
+                self.board[i] = [[0,0] for _ in range(self.COLS)]
+                for j in range(i, 0, -1):
+                    self.board[j] = self.board[j - 1]
+                self.board[0] = [[0, 0] for _ in range(self.COLS)]
+
+
 
     def rotate(self):
         ...
