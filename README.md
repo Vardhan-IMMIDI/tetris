@@ -6,7 +6,7 @@
 
 > *A terminal-based implementation of the legendary puzzle game that changed the world*
 
-#### 🎬 Video Demo: [URL HERE]
+#### 🎬 Video Demo: [Youtube](https://youtu.be/sOOqYNPf_yk)
 
 ## 📖 About
 
