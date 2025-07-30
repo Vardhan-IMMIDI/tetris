@@ -157,11 +157,15 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 - **Alexey Pajitnov** - Creator of Tetris and inspiration for this project
 - **Apple TV+** - For the incredible "Tetris" film that sparked this project
-- **CS50 Staff** - For providing excellent guidance and learning resources
+- **Professor David J. Malan** - For his extraordinary dedication to computer science education and for making programming accessible to learners worldwide. His passion, creativity, and genuine care for students shine through every CS50 lecture, inspiring countless individuals (including myself) to fall in love with programming. Thank you for showing us that computer science is not just about code, but about thinking computationally and solving problems creatively.
+- **The entire CS50 team** - Including all the teaching fellows, course assistants, and staff who work tirelessly behind the scenes to create such an exceptional learning experience. From the thoughtfully crafted problem sets to the supportive online community, every detail reflects the team's commitment to student success.
+- **CS50's Philosophy** - For teaching us that it's not just about the destination, but about the journey of learning to think like a computer scientist. The course's emphasis on academic honesty, collaboration, and celebrating both success and failure has shaped not just my programming skills, but my approach to learning itself.
 - **The Tetris Company** - For maintaining the legacy of this incredible game
 
 ---
 
 *"I want to emphasize that Tetris is not just a game, it's a phenomenon."* - Alexey Pajitnov
+
+*"This was CS50P!"* - A phrase that now carries so much meaning after an incredible learning journey.
 
 **Made with ❤️ as a tribute to the greatest puzzle game ever created**
