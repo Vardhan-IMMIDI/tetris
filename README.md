@@ -45,7 +45,7 @@ Built entirely in Python using the curses library, this implementation brings th
 
 1. Clone the repository:
 ```bash
-git clone https://github.com/yourusername/terminal-tetris.git
+git clone https://github.com/Vardhan-IMMIDI/tetris
 cd terminal-tetris
 ```
 
